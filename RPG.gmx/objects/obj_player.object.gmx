@@ -26,11 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Setup das variaveis
-grav = 0.6;
-hsp_carry = 0;
 hsp = 0;
 vsp = 0;
-jumpspeed = 7.5;
 movespeed = 6;
 image_speed = 0;
 imgsp = 0.3;
@@ -59,68 +56,108 @@ imgsp = 0.3;
             <kind>1</kind>
             <string>///Input
 
-right = (keyboard_check(vk_right))
+right = (keyboard_check(vk_right));
 left = (keyboard_check(vk_left));
-jump = (keyboard_check(vk_space));
+up = (keyboard_check(vk_up));
+down = (keyboard_check(vk_down));
+space = (keyboard_check(vk_space));
 
-if(vsp &lt; 10) vsp += grav;
-hsp = movespeed;
+msp = movespeed;
+
 if(right) 
 {
     sprite_index = spr_fredright;
     image_speed = imgsp;
-    if(place_meeting(x+hsp, y, (obj_standardplatform)))
+    if(place_meeting(x+msp, y, (obj_wall)))
     {
-        while(!place_meeting(x+ sign(hsp), y, obj_standardplatform))
+        while(!place_meeting(x+ sign(msp), y, obj_wall))
         {
-            x += sign(hsp);
+            x += sign(msp);
         }
-    hsp = 0;
+    msp = 0;
     }
-    x += hsp;
+    x += msp;
 }
+
 if(left) 
 {
     image_speed = imgsp;
     sprite_index = spr_fredleft;
-    if(place_meeting(x-hsp, y, (obj_standardplatform)))
+    if(place_meeting(x-msp, y, (obj_wall)))
     {
-        while(!place_meeting(x- sign(hsp), y, obj_standardplatform))
+        while(!place_meeting(x- sign(msp), y, obj_wall))
         {
-            x -= sign(hsp);
+            x -= sign(msp);
         }
-    hsp = 0;
+    msp = 0;
     }
-    x -= hsp;
+    x -= msp;
 }
 
-if(jump)
+if(up) 
 {
-    if(place_meeting(x, y+1, obj_standardplatform))
+    //sprite_index = spr_fredright;
+    image_speed = imgsp;
+    if(place_meeting(x, y-msp, (obj_wall)))
     {
-        vsp = -jumpspeed;
+        while(!place_meeting(x, y- sign(msp), obj_wall))
+        {
+            y -= sign(msp);
+        }
+    msp = 0;
     }
+    y -= msp;
+}
+
+if(down) 
+{
+    //sprite_index = spr_fredright;
+    image_speed = imgsp;
+    if(place_meeting(x, y+msp, (obj_wall)))
+    {
+        while(!place_meeting(x, y+ sign(msp), obj_wall))
+        {
+            y += sign(msp);
+        }
+    msp = 0;
+    }
+    y += msp;
 }
 
 
-if(place_meeting(x, y+vsp, (obj_standardplatform)))
+
+
+
+
+
+
+
+
+if(space)
 {
-    while(!place_meeting(x, y+ sign(vsp), obj_standardplatform))
+    
+}
+
+//Collisions
+
+/*if(place_meeting(x, y+msp, (obj_wall)))
+{
+    while(!place_meeting(x, y+ sign(msp), obj_wall))
     {
-        y += sign(vsp);
+        y += sign(msp);
     }
-    vsp = 0;
+    msp = 0;
     if(sprite_index = spr_fredjumpright){sprite_index = spr_fredright;}
     if(sprite_index = spr_fredjumpleft){sprite_index = spr_fredleft;}
 }
-y += vsp;
+y += msp;*/
 
 if(!right &amp;&amp; !left)
 {
     image_index = 0;
     image_speed = 0;
 }
-if(vsp != 0)
+if(msp != 0)
 {
      if(sprite_index = spr_fredright){sprite_index = spr_fredjumpright;}
      if(sprite_index = spr_fredleft){sprite_index = spr_fredjumpleft;}
