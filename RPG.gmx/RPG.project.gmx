@@ -16,15 +16,19 @@
       <sprite>sprites\spr_player_down_right</sprite>
       <sprite>sprites\spr_player_down_left</sprite>
     </sprites>
+    <sprites name="spr_mobs">
+      <sprite>sprites\spr_enemy</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_level</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
