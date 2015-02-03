@@ -15,17 +15,33 @@
       <sprite>sprites\spr_player_up_left</sprite>
       <sprite>sprites\spr_player_down_right</sprite>
       <sprite>sprites\spr_player_down_left</sprite>
+      <sprites name="spr_rogue">
+        <sprite>sprites\spr_rogue</sprite>
+      </sprites>
     </sprites>
     <sprites name="spr_mobs">
       <sprite>sprites\spr_enemy</sprite>
     </sprites>
+    <sprite>sprites\spr_wall</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\obj_player</object>
+    <objects name="Entities">
+      <objects name="Characters">
+        <object>objects\obj_player</object>
+        <object>objects\obj_priest</object>
+        <object>objects\obj_archer</object>
+        <object>objects\obj_mage</object>
+        <object>objects\obj_warrior</object>
+        <object>objects\obj_rogue</object>
+        <object>objects\obj_paladin</object>
+      </objects>
+      <objects name="enemies">
+        <object>objects\obj_enemy</object>
+      </objects>
+    </objects>
     <object>objects\obj_wall</object>
-    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_level</room>
