@@ -33,6 +33,7 @@ image_speed = 0;
 imgsp = 0.3;
 max_hp = 100;
 hp = 100;
+spr_right = spr_player_right;
 </string>
           </argument>
         </arguments>
@@ -63,66 +64,67 @@ up = (keyboard_check(vk_up));
 down = (keyboard_check(vk_down));
 space = (keyboard_check(vk_space));
 
-msp = movespeed;
+vsp = movespeed;
+hsp = movespeed;
 
 if(right) 
 {
-    sprite_index = spr_player_right;
+    sprite_index = spr_right;
     image_speed = imgsp;
-    if(place_meeting(x+msp, y, (obj_wall)))
+    if(place_meeting(x+hsp, y, (obj_wall)))
     {
-        while(!place_meeting(x+ sign(msp), y, obj_wall))
+        while(!place_meeting(x+ sign(hsp), y, obj_wall))
         {
-            x += sign(msp);
+            x += sign(hsp);
         }
-    msp = 0;
+    hsp = 0;
     }
-    x += msp;
+    x += hsp;
 }
 
 if(left) 
 {
     image_speed = imgsp;
     sprite_index = spr_player_left;
-    if(place_meeting(x-msp, y, (obj_wall)))
+    if(place_meeting(x-hsp, y, (obj_wall)))
     {
-        while(!place_meeting(x- sign(msp), y, obj_wall))
+        while(!place_meeting(x- sign(hsp), y, obj_wall))
         {
-            x -= sign(msp);
+            x -= sign(hsp);
         }
-    msp = 0;
+    hsp = 0;
     }
-    x -= msp;
+    x -= hsp;
 }
 
 if(up) 
 {
     sprite_index = spr_player_up;
     image_speed = imgsp;
-    if(place_meeting(x, y-msp, (obj_wall)))
+    if(place_meeting(x, y-vsp, (obj_wall)))
     {
-        while(!place_meeting(x, y- sign(msp), obj_wall))
+        while(!place_meeting(x, y- sign(vsp), obj_wall))
         {
-            y -= sign(msp);
+            y -= sign(vsp);
         }
-    msp = 0;
+    vsp = 0;
     }
-    y -= msp;
+    y -= vsp;
 }
 
 if(down) 
 {
     sprite_index = spr_player_down;
     image_speed = imgsp;
-    if(place_meeting(x, y+msp, (obj_wall)))
+    if(place_meeting(x, y+vsp, (obj_wall)))
     {
-        while(!place_meeting(x, y+ sign(msp), obj_wall))
+        while(!place_meeting(x, y+ sign(vsp), obj_wall))
         {
-            y += sign(msp);
+            y += sign(vsp);
         }
-    msp = 0;
+    vsp = 0;
     }
-    y += msp;
+    y += vsp;
 }
 
 if(up &amp;&amp; right){sprite_index = spr_player_up_right;}
