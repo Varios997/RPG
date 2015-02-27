@@ -34,6 +34,14 @@ imgsp = 0.3;
 max_hp = 100;
 hp = 100;
 spr_right = spr_player_right;
+spr_left = spr_player_left;
+spr_up = spr_player_up;
+spr_down = spr_player_down;
+spr_up_right = spr_player_up_right;
+spr_up_left = spr_player_up_left;
+spr_down_right = spr_player_down_right;
+spr_down_left = spr_player_down_left;
+
 </string>
           </argument>
         </arguments>
@@ -85,7 +93,7 @@ if(right)
 if(left) 
 {
     image_speed = imgsp;
-    sprite_index = spr_player_left;
+    sprite_index = spr_left;
     if(place_meeting(x-hsp, y, (obj_wall)))
     {
         while(!place_meeting(x- sign(hsp), y, obj_wall))
@@ -99,7 +107,7 @@ if(left)
 
 if(up) 
 {
-    sprite_index = spr_player_up;
+    sprite_index = spr_up;
     image_speed = imgsp;
     if(place_meeting(x, y-vsp, (obj_wall)))
     {
@@ -114,7 +122,7 @@ if(up)
 
 if(down) 
 {
-    sprite_index = spr_player_down;
+    sprite_index = spr_down;
     image_speed = imgsp;
     if(place_meeting(x, y+vsp, (obj_wall)))
     {
@@ -127,10 +135,10 @@ if(down)
     y += vsp;
 }
 
-if(up &amp;&amp; right){sprite_index = spr_player_up_right;}
-if(up &amp;&amp; left){sprite_index = spr_player_up_left;}
-if(down &amp;&amp; right){sprite_index = spr_player_down_right;}
-if(down &amp;&amp; left){sprite_index = spr_player_down_left;}
+if(up &amp;&amp; right){sprite_index = spr_up_right;}
+if(up &amp;&amp; left){sprite_index = spr_up_left;}
+if(down &amp;&amp; right){sprite_index = spr_down_right;}
+if(down &amp;&amp; left){sprite_index = spr_down_left;}
 
 
 
