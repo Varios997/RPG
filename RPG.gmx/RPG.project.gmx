@@ -29,6 +29,7 @@
     <sprites name="spr_attacks">
       <sprite>sprites\spr_slash</sprite>
     </sprites>
+    <sprite>sprites\sprite13</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
