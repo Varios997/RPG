@@ -29,8 +29,13 @@
     <sprites name="spr_attacks">
       <sprite>sprites\spr_slash</sprite>
     </sprites>
+    <sprites name="spr_enviroment">
+      <sprite>sprites\spr_floor_basic</sprite>
+    </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background1</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <objects name="Entities">
