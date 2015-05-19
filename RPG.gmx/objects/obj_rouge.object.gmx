@@ -79,7 +79,7 @@ spr_down_left = spr_rogue;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///FRED! Dá um nome a isto sff.
+            <string>///Attack Direction/Attack Create
 if(sprite_index == spr_right)
 {
     instance_create(x+32, y, obj_slash)
